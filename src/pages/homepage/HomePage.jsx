@@ -1,7 +1,7 @@
 import React from "react";
-import Hats from "../hatspage/hats.component";
 import Directory from "../../componets/directory/directory.componet";
 import "./homepage.styles.scss";
+import ShopPage from '../shop-page/shop.component'
 import { Route, Switch } from "react-router-dom";
 
 export default function Homepage() {
@@ -9,7 +9,7 @@ export default function Homepage() {
     <div className="homepage">
       <Switch>
         <Route exact path= '/'  component={Directory} />
-        <Route path= '/hats' component={Hats} />
+        <Route path= '/shop' component={ShopPage} />
       </Switch>
     </div>
   );
