@@ -1,8 +1,15 @@
-
+body {
+  font-family: "Open Sans Condensed";
+}
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.shop-page{
+.shop-page {
   width: 100%;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
