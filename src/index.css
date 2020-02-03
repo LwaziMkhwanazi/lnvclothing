@@ -1,5 +1,7 @@
 body {
   font-family: "Open Sans Condensed";
+  width: 90%;
+  margin: auto;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -12,4 +14,7 @@ a {
   text-decoration: none;
   color: black;
   font-weight: bold;
+}
+* {
+  box-sizing: border-box;
 }

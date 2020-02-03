@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SHOP_DATA from './shop.data'
 import CollectionPreview from '../../componets/preview-component/collection.preview'
+
 export class ShopPage extends Component {
 
     constructor(props) {
