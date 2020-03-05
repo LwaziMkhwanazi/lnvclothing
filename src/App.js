@@ -4,7 +4,7 @@ import ShopPage from "./pages/shop-page/shop.component";
 import Header from "./componets/header-component/header.component";
 import SignInAndSignUp from "./pages/signIn-signUp/signIn.signUp.page";
 import { Route, Switch } from "react-router-dom";
-import { auth } from "./firebase/firebase.utiles";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utiles";
 
 class App extends Component {
   constructor(props) {
@@ -18,22 +18,29 @@ class App extends Component {
   unsubcribeFromAuth = null;
 
   componentDidMount() {
-  this.unsubcribeFromAuth =  auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
-      
+    this.unsubcribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot(snapShot =>
+          this.setState({
+            currentUser: { id: userAuth.id, ...snapShot.data() }
+          })
+        );
+        console.log(this.state)
+      }
+
+      this.setState({ currentUser: userAuth });
     });
-   
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.unsubcribeFromAuth();
   }
 
   render() {
-   
     return (
       <div>
-        <Header currentUser = {this.state.currentUser}/>
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path="/" component={Directory} />
           <Route path="/shop" component={ShopPage} />
