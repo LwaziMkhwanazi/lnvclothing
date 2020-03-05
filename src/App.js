@@ -26,7 +26,6 @@ class App extends Component {
             currentUser: { id: userAuth.id, ...snapShot.data() }
           })
         );
-        console.log(this.state)
       }
 
       this.setState({ currentUser: userAuth });
