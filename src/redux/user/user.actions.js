@@ -1,5 +1,6 @@
-export const setCurrentUser = user =>({
-    type : 'SET_CURRENT-USER',
-    payload: user
+const setCurrentuser = user => ({
+  type: "SET_CURRENT_USER",
+  payload: user
+});
 
-})
+export default setCurrentuser;
