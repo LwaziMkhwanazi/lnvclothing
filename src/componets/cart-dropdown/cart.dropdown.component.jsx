@@ -3,7 +3,7 @@ import "./cart.dropdown.styles.scss";
 import CustomButton from "../custome-button/custom.button.component";
 import CartItem from "../cart.item/cart.item.component";
 import { connect } from "react-redux";
-
+import { selectCartItems } from "../../redux/cart/cart.selector";
 const CartDropdown = ({ cartItems }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
@@ -15,8 +15,8 @@ const CartDropdown = ({ cartItems }) => (
   </div>
 );
 
-const mapStateToProbs = ({ cart: { cartItems } }) => ({
-  cartItems
+const mapStateToProbs = state => ({
+  cartItems: selectCartItems(state)
 });
 
 export default connect(mapStateToProbs)(CartDropdown);
